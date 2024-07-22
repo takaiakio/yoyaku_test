@@ -11,8 +11,11 @@ def upload(request):
                 text = form.cleaned_data['text']
                 summary = summarize_text(text)
         elif 'reset_text' in request.POST:
-            form = TextForm()  # フォームをリセット
+            form = TextForm()
     else:
         form = TextForm()
 
     return render(request, 'upload.html', {'form': form, 'summary': summary})
+
+def index(request):
+    return render(request, 'index.html')

@@ -17,8 +17,10 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import include, path
+from text_summary import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('analysis/', include('text_summary.urls')),  # このパスが正しいか確認
+    path('analysis/', include('text_summary.urls')),
+    path('', views.index, name='index'),  # ルートURLに対するパスを追加
 ]
