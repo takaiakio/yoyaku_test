@@ -2,7 +2,5 @@ services:
   - type: web
     name: django-app
     env: python
-    plan: free
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "gunicorn summarizer.wsgi"
-    autoDeploy: true
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn summarizer.wsgi:application
