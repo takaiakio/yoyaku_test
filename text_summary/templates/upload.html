@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>テキスト要約</title>
+</head>
+<body>
+    <h1>テキスト要約</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" name="submit_summary">要約する</button>
+        <button type="submit" name="reset_text">消去する</button>
+    </form>
+    {% if summary %}
+        <h2>要約結果</h2>
+        <p>{{ summary }}</p>
+    {% endif %}
+</body>
+</html>
