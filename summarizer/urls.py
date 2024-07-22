@@ -16,12 +16,9 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import include, path  # path と include のインポートが必要
-
-from django.conf import settings
-from django.conf.urls.static import static
+from django.urls import include, path
 
 urlpatterns = [
-    path('admin/', admin.site.urls),  # 波線が表示される原因はこの行のインポート不足
-    path('analysis/', include('text_summary.urls')),  # 同様にインポート不足が原因
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('admin/', admin.site.urls),
+    path('analysis/', include('text_summary.urls')),  # このパスが正しいか確認
+]
